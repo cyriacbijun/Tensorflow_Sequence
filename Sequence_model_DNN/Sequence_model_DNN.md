@@ -1,6 +1,6 @@
 # Predicting Sequence model using DNN
 
-This blog is to demonstrate how to use tensorflow predict series trained on Sequence Models
+This blog is to demonstrate how to use tensorflow to predict series trained on Sequence Models
 
 You can use the [.ipnyb notebook](https://github.com/cyriacbijun/Tensorflow_NLP/blob/master/Sequence_model_DNN/Sequence_model_DNN.ipynb) that is given with the repo by downloading and starting a kernel.
 
@@ -16,14 +16,14 @@ print(tf.__version__)
 ```
 
     2.2.0-rc3
-    
+
 
 A sequence plot may have the following properties:
 * trend: *upwards or downwards shift in a data set over time*
 * seasonality: *A particular repeating characteristic*
 * noise: *Any form of change in data not predictable*
 
-Using all of the above, we can create a synthetic series which depends on the time. Below functions are used to do all of the change in properties.The `plot_series` function is to plot the synthetic series. 
+Using all of the above, we can create a synthetic series which depends on the time. Below functions are used to do all of the change in properties.The `plot_series` function is to plot the synthetic series.
 
 
 ```python
@@ -101,8 +101,8 @@ dataset = windowed_dataset(x_train, window_size, batch_size, shuffle_buffer_size
 
 
 model = tf.keras.models.Sequential([
-    tf.keras.layers.Dense(100, input_shape=[window_size], activation="relu"), 
-    tf.keras.layers.Dense(10, activation="relu"), 
+    tf.keras.layers.Dense(100, input_shape=[window_size], activation="relu"),
+    tf.keras.layers.Dense(10, activation="relu"),
     tf.keras.layers.Dense(1)
 ])
 
@@ -229,7 +229,7 @@ results = np.array(forecast)[:, 0, 0]
      30.141665 29.00634  28.36756  30.040688 29.271364 29.503523 28.13729
      27.730864 28.854599 31.107597 31.337908 29.337849 29.657255 29.014212
      26.785496 29.56716  28.251036 29.806112 27.128942 29.08812  25.534979]
-    
+
 
 
 ```python
@@ -256,5 +256,3 @@ tf.keras.metrics.mean_absolute_error(x_valid, results).numpy()
 
 
     3.0474677
-
-
